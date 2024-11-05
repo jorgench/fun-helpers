@@ -63,7 +63,7 @@ const Nothing: Option<any> = {
 };
 
 export function option<T>(value: T | null | undefined): Option<T> {
-  if (value !== null && value !== undefined) {
+  if (value !== null && value !== undefined && !Number.isNaN(value)) {
     return Some(value);
   }
   return Nothing;

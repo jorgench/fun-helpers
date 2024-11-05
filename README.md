@@ -4,7 +4,7 @@ Listado de funciones
 
 - [Result]()
 - [Option]()
-- [Utilidades para Ts]().
+- [Utilidades para Ts](#utilidades-para-ts).
 
 ### Utilidades para TS
 

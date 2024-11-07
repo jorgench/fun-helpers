@@ -134,7 +134,7 @@ describe("Option values", () => {
       const callbackSpy = vi.spyOn(callbacks, "cb1");
 
       const result = emptyValue.andThen(callbacks.cb1);
-      expect(result.isNothing()).toBeTruthy;
+      expect(result.isNothing()).toBeTruthy();
       expect(callbackSpy).toHaveBeenCalledTimes(0);
     });
 

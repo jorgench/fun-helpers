@@ -59,7 +59,12 @@ describe("Result", () => {
     it("match should execute the ifError condition", () => {
       const result = errorResult.match({
         ifOk: () => 1,
-        ifError: (error) => 400,
+        ifError: (error) => {
+          if (error.kind === "ValidationError") {
+            return 400;
+          }
+          return 500;
+        },
       });
       expect(result).toBe(400);
     });

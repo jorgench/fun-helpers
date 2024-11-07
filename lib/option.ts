@@ -29,6 +29,7 @@ const Some = <T>(arg: T): Option<T> => ({
   mapOr(fn, def) {
     try {
       return fn(arg);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       return def;
     }
@@ -36,6 +37,7 @@ const Some = <T>(arg: T): Option<T> => ({
   mapOrElse(defFn, fn) {
     try {
       return fn(arg);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       return defFn();
     }
@@ -48,6 +50,7 @@ const Some = <T>(arg: T): Option<T> => ({
   },
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Nothing: Option<any> = {
   kind: "Nothing",
   isSome: () => false,

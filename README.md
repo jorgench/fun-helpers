@@ -2,8 +2,8 @@
 
 Listado de funciones
 
-- [Result]()
-- [Option]()
+- [Result](/docs/Result.md)
+- [Option](/docs/Option.md)
 - [Utilidades para Ts](#utilidades-para-ts).
 
 ### Utilidades para TS

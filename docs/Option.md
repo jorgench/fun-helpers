@@ -1,17 +1,21 @@
 # Option
 
+`Option` proporciona una manera segura y explícita de manejar valores que pueden estar presentes (`Some`) o ausentes (`Nothing`). Este enfoque ayuda a evitar errores comunes como el acceso a valores `null` o `undefined`.
+
 - [Ejemplo de uso](#ejemplo-de-uso)
 - [Funciones](#funciones)
 - [Ventajas de usar Option](#ventajas-de-usar-option)
 
 ## Ejemplo de uso
 
+El siguiente ejemplo ilustra cómo utilizar Option para evitar manejar valores nulos de forma manual:
+
 ```ts
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// función para el ejemplo
+// Función que devuelve un nombre o null si no se encuentra
 function getNameUser(id) {
   if (id === 1) {
     return "juan valdez";
@@ -19,14 +23,19 @@ function getNameUser(id) {
   return null;
 }
 
+// Uso del módulo Option
 const name = option(getNameUser(1));
-const upperName = option.andThen((name) => option(capitalize(name)));
-console.log(upperName.getOrElse("No hay nombre")); // imprime "Juan Valdez"
+const upperName = name.andThen((name) => option(capitalize(name)));
+
+console.log(upperName.getOrElse("No hay nombre")); // Imprime "Juan valdez"
 
 const name2 = option(getNameUser(2));
-const upperName2 = option.andThen((name) => option(capitalize(name)));
-console.log(upperName2.getOrElse("No hay nombre")); // imprime "No hay nombre"
+const upperName2 = name2.andThen((name) => option(capitalize(name)));
+
+console.log(upperName2.getOrElse("No hay nombre")); // Imprime "No hay nombre"
 ```
+
+Este enfoque evita verificar manualmente si los valores son null o undefined y hace que las operaciones sean más declarativas.
 
 ## Funciones
 
